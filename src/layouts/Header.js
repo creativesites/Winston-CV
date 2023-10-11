@@ -1,17 +1,21 @@
 import Link from "next/link";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, use, useEffect, useState } from "react";
 import { linkClick, toggleMenu } from "../utils";
 
 const Header = () => {
-  const [day, setDay] = useState(true);
+  const [day, setDay] = useState(false);
+  // useEffect(() => {
+  //   if (day) {
+  //     // document.querySelector("body").classList.add("light-skin");
+  //     // document.querySelector("body").classList.remove("dark-skin");
+  //     document.querySelector("body").classList.add("dark-skin");
+  //   } else {
+  //     document.querySelector("body").classList.add("dark-skin");
+  //   }
+  // }, [day]);
   useEffect(() => {
-    if (day) {
-      document.querySelector("body").classList.add("light-skin");
-      document.querySelector("body").classList.remove("dark-skin");
-    } else {
-      document.querySelector("body").classList.add("dark-skin");
-    }
-  }, [day]);
+    document.querySelector("body").classList.add("dark-skin");
+  }, []);
 
   const [pageToggle, setPageToggle] = useState(false);
 
@@ -23,18 +27,18 @@ const Header = () => {
           <div className="row">
             <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
               {/* logo */}
-              <div className="logo">
-                <Link href="/" legacyBehavior>
-                  <a>
-                    <img
-                      width={228}
-                      height={38}
-                      src="assets/images/logo2.png"
-                      alt=""
-                    />
-                  </a>
-                </Link>
-              </div>
+              {/*<div className="logo">*/}
+              {/*  <Link href="/" legacyBehavior>*/}
+              {/*    <a>*/}
+              {/*      <img*/}
+              {/*        width={228}*/}
+              {/*        height={38}*/}
+              {/*        src="assets/images/logo2.png"*/}
+              {/*        alt=""*/}
+              {/*      />*/}
+              {/*    </a>*/}
+              {/*  </Link>*/}
+              {/*</div>*/}
             </div>
             <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8 align-right">
               {/* switcher btn */}
@@ -143,7 +147,7 @@ const Header = () => {
                                 Resume
                               </a>
                             </li>
-                            <li className="menu-item">
+                            {/* <li className="menu-item">
                               <a
                                 className="splitting-text-anim-2"
                                 data-splitting="chars"
@@ -152,8 +156,8 @@ const Header = () => {
                               >
                                 Testimonials
                               </a>
-                            </li>
-                            <li className="menu-item">
+                            </li> */}
+                            {/* <li className="menu-item">
                               <a
                                 className="splitting-text-anim-2"
                                 data-splitting="chars"
@@ -162,7 +166,7 @@ const Header = () => {
                               >
                                 Pricing
                               </a>
-                            </li>
+                            </li> */}
                             <li className="menu-item">
                               <a
                                 className="splitting-text-anim-2"
@@ -183,84 +187,12 @@ const Header = () => {
                                 Contact
                               </a>
                             </li>
-                            <li
-                              className={`menu-item menu-item-has-children has-children ${
-                                pageToggle ? "opened" : "closed"
-                              }`}
-                            >
-                              <a
-                                className="splitting-text-anim-2"
-                                data-splitting="chars"
-                                onClick={() => setPageToggle(!pageToggle)}
-                              >
-                                Pages
-                                <i className="fas fa-chevron-down"></i>
-                              </a>
-
-                              <ul
-                                className="sub-menu"
-                                style={{
-                                  marginTop: "1rem",
-                                  display: `${pageToggle ? "block" : "none"}`,
-                                }}
-                              >
-                                <li className="menu-item">
-                                  <Link legacyBehavior href="/works-list">
-                                    <a
-                                      className="splitting-text-anim-1"
-                                      data-splitting="chars"
-                                    >
-                                      Works (List)
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li className="menu-item">
-                                  <Link legacyBehavior href="/works">
-                                    <a
-                                      className="splitting-text-anim-1"
-                                      data-splitting="chars"
-                                    >
-                                      Works (Grid)
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li className="menu-item">
-                                  <Link legacyBehavior href="/work-single">
-                                    <a
-                                      className="splitting-text-anim-1"
-                                      data-splitting="chars"
-                                    >
-                                      Work Single Page
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li className="menu-item">
-                                  <Link legacyBehavior href="/blog">
-                                    <a
-                                      className=" splitting-text-anim-1"
-                                      data-splitting="chars"
-                                    >
-                                      Blog
-                                    </a>
-                                  </Link>
-                                </li>
-                                <li className="menu-item">
-                                  <Link legacyBehavior href="/blog-single">
-                                    <a
-                                      className="splitting-text-anim-1"
-                                      data-splitting="chars"
-                                    >
-                                      Single Post
-                                    </a>
-                                  </Link>
-                                </li>
-                              </ul>
-                            </li>
+                            
                           </ul>
                         </div>
                         {/* social */}
                         <div className="menu-social-links">
-                          <a
+                          {/* <a
                             href="http://dribbble.com"
                             target="blank"
                             className="scrolla-element-anim-1"
@@ -283,6 +215,12 @@ const Header = () => {
                             title="behance"
                           >
                             <i className="fab fa-behance" />
+                          </a> */}
+                          <a target="_blank" rel="nofollow" href="https://github.com/creativesites">
+                            <i aria-hidden="true" className="fab fa-github" />
+                          </a>
+                          <a target="_blank" rel="nofollow" href="https://www.youtube.com/channel/UCzT3j_bJn13BaDcNxW2Ljeg">
+                            <i aria-hidden="true" className="fab fa-youtube" />
                           </a>
                         </div>
                         <div className="v-line-block">

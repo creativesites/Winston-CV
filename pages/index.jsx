@@ -42,24 +42,22 @@ const Index = () => {
                     data-animate="active"
                   >
                     <span>
-                      <b>Zoé</b> Miller{" "}
+                      <b>Winston</b> Zulu
                     </span>
                   </h1>
                   <div className="label lui-subtitle">
                     {" "}
-                    I am <strong>Web Developer</strong>
+                    I am a <strong>Software Engineer</strong>
                   </div>
                 </div>
                 <div className="description">
                   <div>
                     <p>
-                      From France, Paris. I have rich experience in web design,
-                      also I am good at wordpress. I love to talk with you about
-                      our unique.
+                      Welcome to my portfolio site! I am Zulu, a dedicated remote software engineer with over 5 years of hands-on experience in the software development industry. My expertise spans a wide range of technologies and platforms, enabling me to deliver high-quality solutions to diverse challenges.
                     </p>
                   </div>
                   <div className="social-links">
-                    <a target="_blank" rel="nofollow" href="#">
+                    {/* <a target="_blank" rel="nofollow" href="#">
                       <i aria-hidden="true" className="fab fa-twitter" />
                     </a>
                     <a target="_blank" rel="nofollow" href="#">
@@ -67,16 +65,22 @@ const Index = () => {
                     </a>
                     <a target="_blank" rel="nofollow" href="#">
                       <i aria-hidden="true" className="fab fa-behance" />
+                    </a> */}
+                    <a target="_blank" rel="nofollow" href="https://github.com/creativesites">
+                      <i aria-hidden="true" className="fab fa-github" />
+                    </a>
+                    <a target="_blank" rel="nofollow" href="https://www.youtube.com/channel/UCzT3j_bJn13BaDcNxW2Ljeg">
+                      <i aria-hidden="true" className="fab fa-youtube" />
                     </a>
                   </div>
                 </div>
                 <div className="bts">
                   <a
                     target="_blank"
-                    href="https://drive.google.com/"
+                    href="https://github.com/creativesites"
                     className="btn"
                   >
-                    <span>Download CV</span>
+                    <span>View Github</span>
                   </a>
                   <a href="#skills-section" className="btn-lnk">
                     {" "}
@@ -90,8 +94,8 @@ const Index = () => {
               >
                 <img
                   decoding="async"
-                  src="assets/images/profile2.png"
-                  alt="<b>Zoé</b> Miller"
+                  src="assets/images/a.jpeg"
+                  alt="<b>Winston</b> Zulu"
                 />
                 <span className="circle circle-1" />
                 <span
@@ -116,14 +120,14 @@ const Index = () => {
                   <ul>
                     <li>
                       <span className="num">
-                        12 <strong>+</strong>
+                        5 <strong>+</strong>
                       </span>
                       <span className="value">
                         Years of <strong>Experience</strong>
                       </span>
                     </li>
                     <li>
-                      <span className="num">330</span>
+                      <span className="num">33</span>
                       <span className="value">
                         Completed <strong>Projects</strong>
                       </span>
@@ -133,7 +137,7 @@ const Index = () => {
               </div>
             </div>
             <div className="lui-bgtitle">
-              <span> Web Developer </span>
+              <span>Full Stack Developer </span>
             </div>
           </div>
         </div>
@@ -182,19 +186,17 @@ const Index = () => {
                   </div>
                   <div className="icon" />
                   <h5 className="lui-title">
-                    <span> Web Design &amp; Logo </span>
+                    <span>Frontend Development</span>
                   </h5>
                   <div className="lui-text">
                     <div>
                       {" "}
-                      Web designers craft the overall vision &amp; plan for a
-                      website layout. Professional logo development: Business,
-                      Company, or Personal.{" "}
+                      I specialize in creating captivating user interfaces and seamless user experiences using technologies like React, React Native, Next.js, and more.{" "}
                     </div>
                   </div>
                   <a href="#pricing-section" className="lnk">
                     {" "}
-                    See Pricing{" "}
+                    See Rates{" "}
                   </a>
                   <div
                     className="image"
@@ -207,24 +209,22 @@ const Index = () => {
               <SwiperSlide className="swiper-slide">
                 <div className="services-item">
                   <div className="lui-subtitle">
-                    <span> Apps Development </span>
+                    <span> Web Development </span>
                   </div>
                   <div className="icon" />
                   <h5 className="lui-title">
-                    <span> iOS &amp; Android </span>
+                    <span>Backend Development </span>
                   </h5>
                   <div className="lui-text">
                     <div>
                       <p>
-                        Design Software applications to run on mobile devices.
-                        Modern and mobile-ready application that will help you
-                        reach all of your marketing.
+                        Building robust backend systems is another forte of mine, with Node.js as my tool of choice to power the server-side of applications.
                       </p>
                     </div>
                   </div>
                   <a href="#pricing-section" className="lnk">
                     {" "}
-                    See Pricing{" "}
+                    See Rates{" "}
                   </a>
                   <div
                     className="image"
@@ -237,23 +237,21 @@ const Index = () => {
               <SwiperSlide className="swiper-slide">
                 <div className="services-item">
                   <div className="lui-subtitle">
-                    <span> Game Development </span>
+                    <span> Mobile Development</span>
                   </div>
                   <div className="icon" />
                   <h5 className="lui-title">
-                    <span> Unity &amp; Unreal Engine </span>
+                    <span> Mobile App Development </span>
                   </h5>
                   <div className="lui-text">
                     <div>
                       {" "}
-                      Creating games &amp; describes the design, development and
-                      release of a game. Developing unique mobile android and
-                      ios games.{" "}
+                      I have extensive experience in mobile app development, specializing in projects such as Fitbit app development, and have acquired substantial expertise in mobile development using Swift and React Native.{" "}
                     </div>
                   </div>
                   <a href="#pricing-section" className="lnk">
                     {" "}
-                    See Pricing{" "}
+                    See Rates{" "}
                   </a>
                   <div
                     className="image"
@@ -266,23 +264,21 @@ const Index = () => {
               <SwiperSlide className="swiper-slide">
                 <div className="services-item">
                   <div className="lui-subtitle">
-                    <span> Advertising </span>
+                    <span>Web Development</span>
                   </div>
                   <div className="icon" />
                   <h5 className="lui-title">
-                    <span> Google Ads </span>
+                    <span> Web Development </span>
                   </h5>
                   <div className="lui-text">
                     <div>
                       {" "}
-                      Advertising services include: Google search result pages,
-                      gmails, YouTube and other websites participated in Google
-                      Ads program.{" "}
+                      My skills extend to web development, where I've utilized platforms like WordPress, Webflow, Squarespace, and Kajabi to create stunning and functional websites.{" "}
                     </div>
                   </div>
                   <a href="#pricing-section" className="lnk">
                     {" "}
-                    See Pricing{" "}
+                    See Rates{" "}
                   </a>
                   <div
                     className="image"
@@ -295,23 +291,22 @@ const Index = () => {
               <SwiperSlide className="swiper-slide">
                 <div className="services-item">
                   <div className="lui-subtitle">
-                    <span> Music Writing </span>
+                    <span> Database Management </span>
                   </div>
                   <div className="icon" />
                   <h5 className="lui-title">
-                    <span> Sound Track </span>
+                    <span> Database Management </span>
                   </h5>
                   <div className="lui-text">
                     <div>
                       <p>
-                        Music copying, writing, creating, transcription and
-                        composition services.
+                        'm proficient in designing and managing various databases, including MongoDB, SQL, and PostgreSQL, ensuring data is handled efficiently and securely.
                       </p>
                     </div>
                   </div>
                   <a href="#pricing-section" className="lnk">
                     {" "}
-                    See Pricing{" "}
+                    See Rates{" "}
                   </a>
                   <div
                     className="image"
@@ -366,14 +361,12 @@ const Index = () => {
                     data-animate="active"
                   >
                     <h6 className="name">
-                      <span> PHP </span>
+                      <span> Programming Languages </span>
                     </h6>
                     <div className="text">
                       <div>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua.
+                          JavaScript, Swift, Python.
                         </p>
                       </div>
                     </div>
@@ -393,25 +386,23 @@ const Index = () => {
                     data-animate="active"
                   >
                     <h6 className="name">
-                      <span> Python </span>
+                      <span> Frontend Development </span>
                     </h6>
                     <div className="text">
                       <div>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua.
+                          React, React Native, Next.js, Vue js.
                         </p>
                       </div>
                     </div>
                     <div className="dots">
-                      <div className="dot" style={{ width: "75%" }}>
+                      <div className="dot" style={{ width: "80%" }}>
                         <span />
                       </div>
                     </div>
                     <div className="value">
                       <span className="num">
-                        75 <span>%</span>
+                        80 <span>%</span>
                       </span>
                     </div>
                   </div>
@@ -424,25 +415,23 @@ const Index = () => {
                     data-animate="active"
                   >
                     <h6 className="name">
-                      <span> JavaScript </span>
+                      <span> Backend Development </span>
                     </h6>
                     <div className="text">
                       <div>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua.
+                          Node.js, Express.js
                         </p>
                       </div>
                     </div>
                     <div className="dots">
-                      <div className="dot" style={{ width: "75%" }}>
+                      <div className="dot" style={{ width: "90%" }}>
                         <span />
                       </div>
                     </div>
                     <div className="value">
                       <span className="num">
-                        75 <span>%</span>
+                        90 <span>%</span>
                       </span>
                     </div>
                   </div>
@@ -451,14 +440,12 @@ const Index = () => {
                     data-animate="active"
                   >
                     <h6 className="name">
-                      <span> React </span>
+                      <span> Mobile App Development</span>
                     </h6>
                     <div className="text">
                       <div>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua.
+                          Fitbit Apps, React Native, Swift.
                         </p>
                       </div>
                     </div>
@@ -482,14 +469,12 @@ const Index = () => {
                     data-animate="active"
                   >
                     <h6 className="name">
-                      <span> WordPress </span>
+                      <span> Chatbots and AI </span>
                     </h6>
                     <div className="text">
                       <div>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua.
+                          Dialogflow, Tensoflow, LangChain
                         </p>
                       </div>
                     </div>
@@ -509,14 +494,12 @@ const Index = () => {
                     data-animate="active"
                   >
                     <h6 className="name">
-                      <span> Adobe XD </span>
+                      <span> Web Development Platforms </span>
                     </h6>
                     <div className="text">
                       <div>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua.
+                          WordPress, Webflow, Squarespace, Kajabi, Moodle.
                         </p>
                       </div>
                     </div>
@@ -528,6 +511,169 @@ const Index = () => {
                     <div className="value">
                       <span className="num">
                         80 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div className="skills-items">
+                  <div
+                      className="skills-item scrolla-element-anim-1 scroll-animate"
+                      data-animate="active"
+                  >
+                    <h6 className="name">
+                      <span> Graphic Design </span>
+                    </h6>
+                    <div className="text">
+                      <div>
+                        <p>
+                          Canva, Photoshop
+                        </p>
+                      </div>
+                    </div>
+                    <div className="dots">
+                      <div className="dot" style={{ width: "60%" }}>
+                        <span />
+                      </div>
+                    </div>
+                    <div className="value">
+                      <span className="num">
+                        60 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                      className="skills-item scrolla-element-anim-1 scroll-animate"
+                      data-animate="active"
+                  >
+                    <h6 className="name">
+                      <span> Data Analysis </span>
+                    </h6>
+                    <div className="text">
+                      <div>
+                        <p>
+                           SQL, Excel, Google Sheets, R
+                        </p>
+                      </div>
+                    </div>
+                    <div className="dots">
+                      <div className="dot" style={{ width: "70%" }}>
+                        <span />
+                      </div>
+                    </div>
+                    <div className="value">
+                      <span className="num">
+                        70 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div className="skills-items">
+                  <div
+                      className="skills-item scrolla-element-anim-1 scroll-animate"
+                      data-animate="active"
+                  >
+                    <h6 className="name">
+                      <span> Project Management </span>
+                    </h6>
+                    <div className="text">
+                      <div>
+                        <p>
+                          Agile, Scrum.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="dots">
+                      <div className="dot" style={{ width: "90%" }}>
+                        <span />
+                      </div>
+                    </div>
+                    <div className="value">
+                      <span className="num">
+                        90 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                      className="skills-item scrolla-element-anim-1 scroll-animate"
+                      data-animate="active"
+                  >
+                    <h6 className="name">
+                      <span> Version Control </span>
+                    </h6>
+                    <div className="text">
+                      <div>
+                        <p>
+                          Git, GitHub, Gitlab.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="dots">
+                      <div className="dot" style={{ width: "80%" }}>
+                        <span />
+                      </div>
+                    </div>
+                    <div className="value">
+                      <span className="num">
+                        80 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div className="skills-items">
+                  <div
+                      className="skills-item scrolla-element-anim-1 scroll-animate"
+                      data-animate="active"
+                  >
+                    <h6 className="name">
+                      <span> Database Management</span>
+                    </h6>
+                    <div className="text">
+                      <div>
+                        <p>
+                          MongoDB, SQL, PostgreSQL
+                        </p>
+                      </div>
+                    </div>
+                    <div className="dots">
+                      <div className="dot" style={{ width: "70%" }}>
+                        <span />
+                      </div>
+                    </div>
+                    <div className="value">
+                      <span className="num">
+                        70 <span>%</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                      className="skills-item scrolla-element-anim-1 scroll-animate"
+                      data-animate="active"
+                  >
+                    <h6 className="name">
+                      <span> Problem Solving </span>
+                    </h6>
+                    <div className="text">
+                      <div>
+                        <p>
+                          Analytical Thinking, Troubleshooting
+                        </p>
+                      </div>
+                    </div>
+                    <div className="dots">
+                      <div className="dot" style={{ width: "85%" }}>
+                        <span />
+                      </div>
+                    </div>
+                    <div className="value">
+                      <span className="num">
+                        85 <span>%</span>
                       </span>
                     </div>
                   </div>
@@ -581,11 +727,10 @@ const Index = () => {
       {/* Section - Resume */}
       <Resume />
       {/* Section - Testimonials */}
-      <section
+      {/* <section
         className="lui-section lui-gradient-center"
         id="testimonials-section"
       >
-        {/* Heading */}
         <div className="lui-heading">
           <div className="container">
             <div className="m-titles align-center">
@@ -609,7 +754,6 @@ const Index = () => {
             </div>
           </div>
         </div>
-        {/* Testimonials */}
         <div className="v-line v-line-right">
           <div className="container">
             <Swiper
@@ -622,8 +766,9 @@ const Index = () => {
                   <div className="image">
                     <img
                       decoding="async"
-                      src="assets/images/testi4-2.jpg"
+                      src="assets/images/candace.webp"
                       alt="Barbara Wilson"
+                      style={{minHeight:'280px'}}
                     />
                     <div className="icon">
                       <svg
@@ -645,18 +790,16 @@ const Index = () => {
                   <div className="text lui-text">
                     <div>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                      Winston's backend development skills using Node.js have been indispensable. He's not just a developer; he's a reliable problem solver who consistently delivers high-quality code on time.
                       </p>
                     </div>
                   </div>
                   <div className="info">
                     <h6 className="name">
-                      <span>Barbara Wilson</span>
+                      <span>Candace Mitchel Harris</span>
                     </h6>
                     <div className="author">
-                      <span>CEO Company</span>
+                      <span>CEO Myavana</span>
                     </div>
                   </div>
                   <div
@@ -672,8 +815,9 @@ const Index = () => {
                   <div className="image">
                     <img
                       decoding="async"
-                      src="assets/images/testi4-1.jpg"
-                      alt="Charlie Smith"
+                      src="assets/images/andrea.jpeg"
+                      alt="Andrea Ward"
+                      style={{minHeight:'280px'}}
                     />
                     <div className="icon">
                       <svg
@@ -695,18 +839,16 @@ const Index = () => {
                   <div className="text lui-text">
                     <div>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                      Winston's ability to create stunning websites on platforms like WordPress and Webflow is remarkable. His designs are not only visually appealing but also optimized for performance and user experience.
                       </p>
                     </div>
                   </div>
                   <div className="info">
                     <h6 className="name">
-                      <span>Charlie Smith</span>
+                      <span>Andrea Ward</span>
                     </h6>
                     <div className="author">
-                      <span>Designer</span>
+                      <span>CEO, Empire One Consulting</span>
                     </div>
                   </div>
                   <div
@@ -722,8 +864,9 @@ const Index = () => {
                   <div className="image">
                     <img
                       decoding="async"
-                      src="assets/images/testi4-4.jpg"
-                      alt="Roy Wang"
+                      src="assets/images/ben.jpeg"
+                      alt="Ben Ayed"
+                      style={{minHeight:'280px'}}
                     />
                     <div className="icon">
                       <svg
@@ -745,18 +888,16 @@ const Index = () => {
                   <div className="text lui-text">
                     <div>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                      I had the pleasure of collaborating with Zulu on a challenging Dialogflow project. His proficiency in chatbot development and AI integration made the project a resounding success. Zulu's dedication and clear communication were key to our achievements.
                       </p>
                     </div>
                   </div>
                   <div className="info">
                     <h6 className="name">
-                      <span>Roy Wang</span>
+                      <span>Ben Ayed</span>
                     </h6>
                     <div className="author">
-                      <span>Manager GYM</span>
+                      <span>Manager, AutoServe, CA</span>
                     </div>
                   </div>
                   <div
@@ -795,9 +936,7 @@ const Index = () => {
                   <div className="text lui-text">
                     <div>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                      As the manager of our Zambia team, Zulu showcased exceptional leadership skills. His strategic thinking and technical expertise were vital in achieving our project goals. He's a true asset to any team.
                       </p>
                     </div>
                   </div>
@@ -806,7 +945,7 @@ const Index = () => {
                       <span>Jennifer Smith</span>
                     </h6>
                     <div className="author">
-                      <span>CEO &amp; Founder</span>
+                      <span>CEO &amp; Founder, Propzi, Canada</span>
                     </div>
                   </div>
                   <div
@@ -845,9 +984,7 @@ const Index = () => {
                   <div className="text lui-text">
                     <div>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                      Zulu's multidisciplinary skills are a true asset. From mobile app development to graphic design, he brings a wealth of knowledge to the table. His contributions have consistently exceeded our expectations.
                       </p>
                     </div>
                   </div>
@@ -856,7 +993,7 @@ const Index = () => {
                       <span>Paul Freeman</span>
                     </h6>
                     <div className="author">
-                      <span>Photographer</span>
+                      <span>HR Manager, Bluevector</span>
                     </div>
                   </div>
                   <div
@@ -874,10 +1011,10 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Section - Pricing */}
-      <section className="lui-section lui-gradient-center" id="pricing-section">
-        {/* Heading */}
+      {/* <section className="lui-section lui-gradient-center" id="pricing-section">
+        
         <div className="lui-heading">
           <div className="container">
             <div className="m-titles align-center">
@@ -901,7 +1038,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-        {/* Pricing */}
+        
         <div className="v-line v-line-left">
           <div className="container">
             <div className="pricing-items row">
@@ -917,16 +1054,14 @@ const Index = () => {
                   <div className="price">
                     <span>
                       {" "}
-                      39 <b>$</b>
+                      25 <b>$</b>
                     </span>
                     <em>Hour</em>
                   </div>
                   <div className="lui-text">
                     <div>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                      On an hourly basis, my rate reflects my extensive experience and skills as a software developer with a specialization in JavaScript, React, React Native, Next.js, and Node.js. I bring a wealth of knowledge in AI development, chatbot creation, backend systems, and mobile app development. My hourly rate is competitive and offers excellent value for your project needs.
                       </p>
                     </div>
                   </div>
@@ -935,17 +1070,23 @@ const Index = () => {
                       <ul>
                         <li>
                           <i className="fas fa-check" />
-                          Brand Design
+                          Full-Stack Development
                         </li>
                         <li>
                           <i className="fas fa-check" />
                           Web Development
                         </li>
                         <li>
-                          <em>Advertising</em>
+                        <i className="fas fa-check" />
+                          Backend Development
                         </li>
                         <li>
-                          <em>Photography</em>
+                        <i className="fas fa-check" />
+                          Mobile App Development
+                        </li>
+                        <li>
+                        <i className="fas fa-check" />
+                          AI Development
                         </li>
                       </ul>
                     </div>
@@ -976,36 +1117,39 @@ const Index = () => {
                   <div className="price">
                     <span>
                       {" "}
-                      259 <b>$</b>
+                      800 <b>$</b>
                     </span>
                     <em>Week</em>
                   </div>
                   <div className="lui-text">
                     <div>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                      For freelancing on a weekly basis, my rate accounts for my comprehensive skill set and the value I bring as a full-stack developer. With years of experience, I offer expertise in web and mobile development, AI, and backend systems. Despite the challenges of securing remote work from Africa, my rates remain reasonable while ensuring you receive top-tier services for your project throughout the week.
                       </p>
                     </div>
                   </div>
                   <div className="list">
                     <div>
-                      <ul>
+                    <ul>
                         <li>
                           <i className="fas fa-check" />
-                          Brand Design
+                          Full-Stack Development
                         </li>
                         <li>
                           <i className="fas fa-check" />
                           Web Development
                         </li>
                         <li>
-                          <i className="fas fa-check" />
-                          Advertising
+                        <i className="fas fa-check" />
+                          Backend Development
                         </li>
                         <li>
-                          <em>Photography</em>
+                        <i className="fas fa-check" />
+                          Mobile App Development
+                        </li>
+                        <li>
+                        <i className="fas fa-check" />
+                          AI Development
                         </li>
                       </ul>
                     </div>
@@ -1033,37 +1177,39 @@ const Index = () => {
                   <div className="price">
                     <span>
                       {" "}
-                      1.249 <b>$</b>
+                      2 500 <b>$</b>
                     </span>
                     <em>Month</em>
                   </div>
                   <div className="lui-text">
                     <div>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                      If you opt for a full-time commitment, my monthly salary reflects a fair and competitive compensation package considering my skills, experience, and location in Zambia. This rate encompasses full-time availability, dedication, and a commitment to achieving your project's goals. Despite the differences in pay rates compared to Western countries, my focus is on delivering exceptional results and ensuring your project's success.
                       </p>
                     </div>
                   </div>
                   <div className="list">
                     <div>
-                      <ul>
+                    <ul>
                         <li>
                           <i className="fas fa-check" />
-                          Brand Design
+                          Full-Stack Development
                         </li>
                         <li>
                           <i className="fas fa-check" />
                           Web Development
                         </li>
                         <li>
-                          <i className="fas fa-check" />
-                          Advertising
+                        <i className="fas fa-check" />
+                          Backend Development
                         </li>
                         <li>
-                          <i className="fas fa-check" />
-                          Photography
+                        <i className="fas fa-check" />
+                          Mobile App Development
+                        </li>
+                        <li>
+                        <i className="fas fa-check" />
+                          AI Development
                         </li>
                       </ul>
                     </div>
@@ -1085,7 +1231,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Section - Blog */}
       <section className="lui-section lui-gradient-top" id="blog-section">
         {/* Heading */}
@@ -1126,8 +1272,8 @@ const Index = () => {
                       <a>
                         <img
                           decoding="async"
-                          src="assets/images/single7.jpg"
-                          alt="The Main Thing For The Designer"
+                          src="assets/images/blog1.jpg"
+                          alt="Navigating the World of Remote Work"
                         />
                       </a>
                     </Link>
@@ -1138,14 +1284,12 @@ const Index = () => {
                     </div>
                     <h5 className="lui-title">
                       <Link legacyBehavior href="/blog-single">
-                        <a>The Main Thing For The Designer</a>
+                        <a>Navigating the World of Remote Work</a>
                       </Link>
                     </h5>
                     <div className="lui-text">
                       <p>
-                        Vivamus interdum suscipit lacus. Nunc ultrices accumsan
-                        mattis. Aliquam vel sem vel velit efficitur malesuada.
-                        Donec arcu lacus, ornare eget…{" "}
+                      Working remotely as a software engineer has become more than just a trend; it's a way of life for many of us. The freedom to work from anywhere in the world brings exciting opportunities, but it also comes with its unique set of challenges.…{" "}
                       </p>
                       <div className="readmore">
                         <Link legacyBehavior href="/blog-single">
@@ -1166,26 +1310,24 @@ const Index = () => {
                       <a>
                         <img
                           decoding="async"
-                          src="assets/images/blog-4-scaled-1.jpg"
-                          alt="Follow Your Own Design Process"
+                          src="assets/images/blog2.jpg"
+                          alt="The Power of AI in Modern Business: A Deep Dive"
                         />
                       </a>
                     </Link>
                   </div>
                   <div className="desc">
                     <div className="category lui-subtitle">
-                      <span>October 31, 2022</span>
+                      <span>April 12, 2023</span>
                     </div>
                     <h5 className="lui-title">
                       <Link legacyBehavior href="/blog-single">
-                        <a>Follow Your Own Design Process</a>
+                        <a>The Power of AI in Modern Business: A Deep Dive</a>
                       </Link>
                     </h5>
                     <div className="lui-text">
                       <p>
-                        Vivamus interdum suscipit lacus. Nunc ultrices accumsan
-                        mattis. Aliquam vel sem vel velit efficitur malesuada.
-                        Donec arcu lacus, ornare eget…{" "}
+                      Artificial intelligence (AI) is no longer a futuristic concept; it's a present-day reality that's transforming industries across the globe. As a software engineer deeply involved in AI development, I've witnessed firsthand the profound impact of AI on businesses of all sizes. …{" "}
                       </p>
                       <div className="readmore">
                         <Link legacyBehavior href="/blog-single">
@@ -1206,26 +1348,24 @@ const Index = () => {
                       <a>
                         <img
                           decoding="async"
-                          src="assets/images/blog-2.jpg"
-                          alt="Usability Secrets to Create Better Interfaces"
+                          src="assets/images/blog3.jpg"
+                          alt="Bridging the Gap: How African Developers Thrive in the Global Tech Industry"
                         />
                       </a>
                     </Link>
                   </div>
                   <div className="desc">
                     <div className="category lui-subtitle">
-                      <span>November 28, 2021</span>
+                      <span>June 28, 2023</span>
                     </div>
                     <h5 className="lui-title">
                       <Link legacyBehavior href="/blog-single">
-                        <a>Usability Secrets to Create Better Interfaces</a>
+                        <a>Bridging the Gap: How African Developers Thrive in the Global Tech Industry</a>
                       </Link>
                     </h5>
                     <div className="lui-text">
                       <p>
-                        Vivamus interdum suscipit lacus. Nunc ultrices accumsan
-                        mattis. Aliquam vel sem vel velit efficitur malesuada.
-                        Donec arcu lacus, ornare eget…{" "}
+                      The global tech industry is a dynamic and ever-evolving landscape, but it often seems distant from regions like Africa, where unique challenges and opportunities shape the journeys of aspiring developers.…{" "}
                       </p>
                       <div className="readmore">
                         <Link legacyBehavior href="/blog-single">
@@ -1296,7 +1436,7 @@ const Index = () => {
                       <span> Address </span>
                     </div>
                     <div className="lui-text">
-                      <span> North Tower, Toronto, Canada </span>
+                      <span> Lusaka, Zambia </span>
                     </div>
                   </div>
                   <div
@@ -1307,10 +1447,10 @@ const Index = () => {
                       <i aria-hidden="true" className="far fa-user" />
                     </div>
                     <div className="title">
-                      <span> Freelance </span>
+                      <span> Remote </span>
                     </div>
                     <div className="lui-text">
-                      <span> Available Right Now </span>
+                      <span> Developer </span>
                     </div>
                   </div>
                   <div
@@ -1324,7 +1464,7 @@ const Index = () => {
                       <span> Email </span>
                     </div>
                     <div className="lui-text">
-                      <span> zoe.miller@mydomain.com </span>
+                      <span> creativesites263@gmail.com </span>
                     </div>
                   </div>
                   <div
@@ -1338,7 +1478,7 @@ const Index = () => {
                       <span> Phone </span>
                     </div>
                     <div className="lui-text">
-                      <span> +1 900 - 900 - 9000 </span>
+                      <span> +260 979 046 745</span>
                     </div>
                   </div>
                 </div>

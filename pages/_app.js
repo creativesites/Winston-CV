@@ -13,12 +13,12 @@ const App = ({ Component, pageProps }) => {
   return (
     <Fragment>
       <Head>
-        <title>Luique - Personal Portfolio React NextJS Template</title>
+        <title>Winston Zulu</title>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="HandheldFriendly" content="true" />
-        <meta name="author" content="bslthemes" />
+        <meta name="author" content="Winston Zulu" />
         {/* Fonts */}
         <link
           rel="stylesheet"
