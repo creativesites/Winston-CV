@@ -3,19 +3,17 @@ import { Fragment, use, useEffect, useState } from "react";
 import { linkClick, toggleMenu } from "../utils";
 
 const Header = () => {
-  const [day, setDay] = useState(false);
-  // useEffect(() => {
-  //   if (day) {
-  //     // document.querySelector("body").classList.add("light-skin");
-  //     // document.querySelector("body").classList.remove("dark-skin");
-  //     document.querySelector("body").classList.add("dark-skin");
-  //   } else {
-  //     document.querySelector("body").classList.add("dark-skin");
-  //   }
-  // }, [day]);
+  const [day, setDay] = useState(true);
   useEffect(() => {
-    document.querySelector("body").classList.add("dark-skin");
-  }, []);
+    if (day) {
+      // document.querySelector("body").classList.add("light-skin");
+      // document.querySelector("body").classList.remove("dark-skin");
+      document.querySelector("body").classList.add("dark-skin");
+    } else {
+      document.querySelector("body").classList.add("dark-skin");
+    }
+  }, [day]);
+  
 
   const [pageToggle, setPageToggle] = useState(false);
 
