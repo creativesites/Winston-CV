@@ -5,15 +5,27 @@ import { linkClick, toggleMenu } from "../utils";
 const Header = () => {
   const [day, setDay] = useState(true);
   useEffect(() => {
-    if (day) {
-      // document.querySelector("body").classList.add("light-skin");
-      // document.querySelector("body").classList.remove("dark-skin");
+    document.querySelector("body").classList.remove("light-skin");
+    document.querySelector("body").classList.add("dark-skin");
+    // if (day) {
+    //   // document.querySelector("body").classList.add("light-skin");
+    //   // document.querySelector("body").classList.remove("dark-skin");
+    //   document.querySelector("body").classList.add("dark-skin");
+    // } else {
+    //   document.querySelector("body").classList.add("dark-skin");
+    // }
+  }, []);
+  const toggleday = () => {
+    if(day){
+      document.querySelector("body").classList.remove("dark-skin");
+      document.querySelector("body").classList.add("light-skin");
+      setDay(!day)
+    }else{
+      document.querySelector("body").classList.remove("light-skin");
       document.querySelector("body").classList.add("dark-skin");
-    } else {
-      document.querySelector("body").classList.add("dark-skin");
+      setDay(!day)
     }
-  }, [day]);
-  
+  } 
 
   const [pageToggle, setPageToggle] = useState(false);
 
@@ -45,7 +57,7 @@ const Header = () => {
                 className={`switcher-btn ${day ? "" : "active"}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  setDay(!day);
+                  toggleday()
                 }}
               >
                 <span className="sw-before">

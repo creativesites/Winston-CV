@@ -90,7 +90,6 @@ const PortfolioIsotope = ({ noViewMore }) => {
             >
               <div className="image">
                 <div className="img">
-                  <Link legacyBehavior href="/work-single">
                     <a>
                       <img
                         decoding="async"
@@ -99,16 +98,13 @@ const PortfolioIsotope = ({ noViewMore }) => {
                       />
                       <span className="overlay" />
                     </a>
-                  </Link>
                 </div>
               </div>
               <div className="desc">
                 <span className="category"> Web, AI Development, Mobile App Development </span>
                 
                 <h5 className="name">
-                  <Link legacyBehavior href="/work-single">
                     <a>Myavana</a>
-                  </Link>
                 </h5>
                 <div className="text">
                   <p>
@@ -134,21 +130,18 @@ const PortfolioIsotope = ({ noViewMore }) => {
             >
               <div className="image">
                 <div className="img">
-                  <Link legacyBehavior href="/work-single">
+                  
                     <a>
                       <iframe width="480" height="240" src="https://www.youtube.com/embed/ySbATgmd01E" title="WhatsApp Classifieds Chatbot on ZTV Science and Tech feature" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                       {/* <YouTubeFrame video="0Qp1z7wX2K8" width="100%" height="100%" thumbnailQuality="maxresdefault" /> */}
                       <span className="overlay" />
                     </a>
-                  </Link>
                 </div>
               </div>
               <div className="desc">
                 <span className="category"> AI Development, Backend Development </span>
                 <h5 className="name">
-                  <Link legacyBehavior href="/work-single">
                     <a>ChatLearn</a>
-                  </Link>
                 </h5>
                 <div className="text">
                   <p>
@@ -175,7 +168,6 @@ const PortfolioIsotope = ({ noViewMore }) => {
             >
               <div className="image">
                 <div className="img">
-                  <Link legacyBehavior href="/work-single">
                     <a>
                       <img
                         decoding="async"
@@ -184,15 +176,12 @@ const PortfolioIsotope = ({ noViewMore }) => {
                       />
                       <span className="overlay" />
                     </a>
-                  </Link>
                 </div>
               </div>
               <div className="desc">
                 <span className="category"> Mobile App Development, Backend Development, AI Development </span>
                 <h5 className="name">
-                  <Link legacyBehavior href="/work-single">
                     <a>Propzi</a>
-                  </Link>
                 </h5>
                 <div className="text">
                   <p>
@@ -218,7 +207,6 @@ const PortfolioIsotope = ({ noViewMore }) => {
             >
               <div className="image">
                 <div className="img">
-                  <Link legacyBehavior href="/work-single">
                     <a>
                       <img
                         decoding="async"
@@ -227,26 +215,21 @@ const PortfolioIsotope = ({ noViewMore }) => {
                       />
                       <span className="overlay" />
                     </a>
-                  </Link>
                 </div>
               </div>
               <div className="desc">
                 <span className="category"> AI Development, Backend Development, Fitbit App Development </span>
                 <h5 className="name">
-                  <Link legacyBehavior href="/work-single">
                     <a>Bluevector AI</a>
-                  </Link>
                 </h5>
                 <div className="text">
                   <p>
                   At BlueVector, I served as the lead developer for the Medtronic Fitbit app, responsible for designing and implementing Dialogflow agents tailored to U.S. government-related departments. My role involved intricate collaboration and a deep understanding of compliance and security standards, contributing to the successful integration of healthcare solutions within the Fitbit platform. This experience highlighted my technical expertise and ability to navigate complex regulatory environments while delivering high-quality solutions.
                   </p>
                 </div>
-                <Link legacyBehavior href="https://bluevector.ai/">
                 <a className="lnk" target="_blank" rel="noopener noreferrer">
                   Visit Website
                 </a>
-                </Link>
               </div>
               <div
                 className="bg-img"
@@ -263,7 +246,6 @@ const PortfolioIsotope = ({ noViewMore }) => {
             >
               <div className="image">
                 <div className="img">
-                  <Link legacyBehavior href="/work-single">
                     <a>
                       <img
                         decoding="async"
@@ -272,15 +254,12 @@ const PortfolioIsotope = ({ noViewMore }) => {
                       />
                       <span className="overlay" />
                     </a>
-                  </Link>
                 </div>
               </div>
               <div className="desc">
                 <span className="category"> AI Development </span>
                 <h5 className="name">
-                  <Link legacyBehavior href="/work-single">
                     <a>AutoService AI</a>
-                  </Link>
                 </h5>
                 <div className="text">
                   <p>
@@ -306,7 +285,6 @@ const PortfolioIsotope = ({ noViewMore }) => {
             >
               <div className="image">
                 <div className="img">
-                  <Link legacyBehavior href="/work-single">
                     <a>
                       <img
                         decoding="async"
@@ -315,15 +293,12 @@ const PortfolioIsotope = ({ noViewMore }) => {
                       />
                       <span className="overlay" />
                     </a>
-                  </Link>
                 </div>
               </div>
               <div className="desc">
                 <span className="category"> AI Development</span>
                 <h5 className="name">
-                  <Link legacyBehavior href="/work-single">
                     <a>Michigan State Health & Human Services</a>
-                  </Link>
                 </h5>
                 <div className="text">
                   <p>

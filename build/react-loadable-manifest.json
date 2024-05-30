@@ -1,0 +1,30 @@
+{
+  "index.jsx -> ../src/components/PortfolioIsotope": {
+    "id": 82,
+    "files": [
+      "static/chunks/391.844967eec0a86544.js",
+      "static/chunks/82.c7d333662a664c64.js"
+    ]
+  },
+  "work-single.jsx -> ../src/components/WorkSingleISotope": {
+    "id": 6645,
+    "files": [
+      "static/chunks/391.844967eec0a86544.js",
+      "static/chunks/645.5356d5781da8f9f2.js"
+    ]
+  },
+  "works-list.jsx -> ../src/components/PortfolioIsotopeList": {
+    "id": 2647,
+    "files": [
+      "static/chunks/391.844967eec0a86544.js",
+      "static/chunks/647.c01239ac14a12a5d.js"
+    ]
+  },
+  "works.jsx -> ../src/components/PortfolioIsotope": {
+    "id": 82,
+    "files": [
+      "static/chunks/391.844967eec0a86544.js",
+      "static/chunks/82.c7d333662a664c64.js"
+    ]
+  }
+}

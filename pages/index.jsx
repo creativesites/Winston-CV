@@ -7,6 +7,7 @@ import {
   servicesSliderProps,
   testimonialsSliderProps,
 } from "../src/sliderProps";
+import React, {useEffect} from "react";
 const PortfolioIsotope = dynamic(
   () => import("../src/components/PortfolioIsotope"),
   {
@@ -14,6 +15,10 @@ const PortfolioIsotope = dynamic(
   }
 );
 const Index = () => {
+  useEffect(() => {
+    document.querySelector("body").classList.remove("light-skin");
+    document.querySelector("body").classList.add("dark-skin");
+  }, []);
   return (
     <Layout pageClassName={"home"}>
       {/* Section - Hero Started */}
@@ -42,7 +47,7 @@ const Index = () => {
                     data-animate="active"
                   >
                     <span>
-                      <b>Winston</b> Zulu
+                      <b>Winston</b> Chikazhe
                     </span>
                   </h1>
                   <div className="label lui-subtitle">
@@ -53,7 +58,7 @@ const Index = () => {
                 <div className="description">
                   <div>
                     <p>
-                      Welcome to my portfolio site! I am Zulu, a dedicated remote software engineer with over 5 years of hands-on experience in the software development industry. My expertise spans a wide range of technologies and platforms, enabling me to deliver high-quality solutions to diverse challenges.
+                      Welcome to my portfolio site! I am Winston Chikazhe, a dedicated remote software engineer with over 5 years of hands-on experience in the software development industry. My expertise spans a wide range of technologies and platforms, enabling me to deliver high-quality solutions to diverse challenges.
                     </p>
                   </div>
                   <div className="social-links">
@@ -94,7 +99,7 @@ const Index = () => {
               >
                 <img
                   decoding="async"
-                  src="assets/images/a.jpeg"
+                  src="assets/images/three.jpg"
                   alt="<b>Winston</b> Zulu"
                 />
                 <span className="circle circle-1" />
