@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Glass & Pattern Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="app-shell">
+    <main class="viewport">
+        <!-- The Interactive Stage -->
+        <section id="stage" class="stage">
+            <div id="pattern-layer" class="pattern-layer"></div>
+            <div id="noise-layer" class="noise-layer"></div>
+            
+            <!-- The Glass Card (Resizable/Draggable Preview) -->
+            <div id="glass-card" class="glass-card">
+                <div class="glass-card__content">
+                    <p class="eyebrow">Digital Expression</p>
+                    <h2>Luxe Glass</h2>
+                    <p class="description">Experience the interplay of frosted transparency and organic background noise.</p>
+                </div>
+            </div>
+
+            <!-- Draggable Mesh Points (Will be injected by JS) -->
+            <div id="mesh-points" class="mesh-points-container"></div>
+        </section>
+
+        <!-- Code Export Drawer -->
+        <section id="code-drawer" class="code-drawer">
+            <button id="toggle-drawer" class="drawer-handle">
+                <span>Code Export</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="drawer-content">
+                <div class="code-group">
+                    <header>
+                        <h3>Glass CSS</h3>
+                        <button class="copy-btn" data-copy="glass">Copy CSS</button>
+                    </header>
+                    <pre><code id="css-output"></code></pre>
+                </div>
+                <div class="code-group">
+                    <header>
+                        <h3>Background SVG</h3>
+                        <button class="copy-btn" data-copy="svg">Copy SVG</button>
+                    </header>
+                    <pre><code id="svg-output"></code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Control Sidebar -->
+    <aside class="sidebar">
+        <header class="sidebar-header">
+            <div class="logo">
+                <span class="logo-mark">LX</span>
+                <h1>Luxe Studio</h1>
+            </div>
+            <p class="sidebar-intro">Craft premium glassmorphism and organic patterns.</p>
+        </header>
+
+        <nav class="sidebar-tabs">
+            <button class="tab-btn active" data-tab="glass">Glass</button>
+            <button class="tab-btn" data-tab="patterns">Patterns</button>
+            <button class="tab-btn" data-tab="presets">Presets</button>
+        </nav>
+
+        <section class="controls-container">
+            <!-- Glass Controls -->
+            <div class="tab-panel active" id="panel-glass">
+                <div class="control-group">
+                    <label>Blur Intensity <span id="val-blur">20px</span></label>
+                    <input type="range" id="input-blur" min="0" max="64" value="20">
+                </div>
+                <div class="control-group">
+                    <label>Transparency <span id="val-opacity">0.1</span></label>
+                    <input type="range" id="input-opacity" min="0" max="0.5" step="0.01" value="0.1">
+                </div>
+                <div class="control-group">
+                    <label>Glass Tint</label>
+                    <input type="color" id="input-tint" value="#ffffff">
+                </div>
+                <div class="control-group">
+                    <label>Border Width <span id="val-border">1px</span></label>
+                    <input type="range" id="input-border" min="0" max="5" value="1">
+                </div>
+                <div class="control-group">
+                    <label>Shadow Depth <span id="val-shadow">30%</span></label>
+                    <input type="range" id="input-shadow" min="0" max="100" value="30">
+                </div>
+            </div>
+
+            <!-- Patterns Controls -->
+            <div class="tab-panel" id="panel-patterns">
+                <div class="control-subgroup">
+                    <h3>Grain & Noise</h3>
+                    <div class="control-group">
+                        <label>Grain Intensity <span id="val-noise">0.15</span></label>
+                        <input type="range" id="input-noise" min="0" max="0.5" step="0.01" value="0.15">
+                    </div>
+                </div>
+                <div class="control-subgroup">
+                    <h3>Mesh Gradients</h3>
+                    <p class="info">Drag the color points on the stage to reshape the field.</p>
+                    <div id="mesh-controls-list" class="mesh-controls-list">
+                        <!-- Points will be listed here -->
+                    </div>
+                    <button id="add-point" class="btn-secondary">+ Add Mesh Point</button>
+                </div>
+            </div>
+
+            <!-- Presets Controls -->
+            <div class="tab-panel" id="panel-presets">
+                <div class="preset-grid">
+                    <button class="preset-card" data-preset="desert">
+                        <div class="swatch desert"></div>
+                        <span>Desert Drip</span>
+                    </button>
+                    <button class="preset-card" data-preset="midnight">
+                        <div class="swatch midnight"></div>
+                        <span>Midnight Safari</span>
+                    </button>
+                    <button class="preset-card" data-preset="opal">
+                        <div class="swatch opal"></div>
+                        <span>Opal Frost</span>
+                    </button>
+                    <button class="preset-card" data-preset="vanta">
+                        <div class="swatch vanta"></div>
+                        <span>Vanta Glass</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="sidebar-footer">
+            <button id="randomize" class="btn-ghost">Randomize Patterns</button>
+        </footer>
+    </aside>
+
+    <div id="toast" class="toast" hidden>Copied to clipboard</div>
+
+    <!-- Hidden SVG for Filters -->
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <filter id="grainy-noise">
+                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" id="noise-turb" />
+                <feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <script src="app.js"></script>
+</body>
+</html>

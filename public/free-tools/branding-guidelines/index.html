@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Brand & Website Brief Builder</title>
+  <link rel="stylesheet" href="ai_studio_code.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="builder-panel">
+      <header class="builder-header">
+        <div class="builder-header__top">
+          <div class="builder-brand">
+            <h1>Brand Studio</h1>
+          </div>
+
+          <div class="builder-actions">
+            <button type="button" id="resetDraftBtn" class="ghost-btn">Reset Draft</button>
+            <button type="button" id="startOverBtn" class="ghost-btn ghost-btn--danger">Start Over</button>
+            <button type="button" id="mobilePreviewToggle" class="primary-btn mobile-preview-btn">Preview</button>
+          </div>
+        </div>
+
+        <div class="progress-row">
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" id="progressBar"></div>
+          </div>
+          <div class="progress-meta">
+            <span id="stepIndicator">Step 1 of 8</span>
+            <span id="saveStatus">Draft not saved yet</span>
+          </div>
+        </div>
+
+        <nav class="step-tabs" aria-label="Builder steps">
+          <button type="button" class="step-tab active" data-step-target="1">Basics</button>
+          <button type="button" class="step-tab" data-step-target="2">Identity</button>
+          <button type="button" class="step-tab" data-step-target="3">Colors</button>
+          <button type="button" class="step-tab" data-step-target="4">Type</button>
+          <button type="button" class="step-tab" data-step-target="5">Style</button>
+          <button type="button" class="step-tab" data-step-target="6">Content</button>
+          <button type="button" class="step-tab" data-step-target="7">Structure</button>
+          <button type="button" class="step-tab" data-step-target="8">Review</button>
+        </nav>
+      </header>
+
+      <div class="builder-content">
+        <section class="wizard-step active" data-step="1">
+          <div class="step-header">
+            <span class="step-kicker">Step 1</span>
+            <h2>Website Basics</h2>
+            <p>Start with the essentials so the builder and the AI understand the website you want to create.</p>
+          </div>
+
+          <div class="field-grid two-col">
+            <div class="input-group">
+              <label for="websiteType">Website Type</label>
+              <select id="websiteType">
+                <option value="service-business">Service Business</option>
+                <option value="agency">Agency</option>
+                <option value="ecommerce">E-commerce Store</option>
+                <option value="saas">SaaS / Tech Product</option>
+                <option value="portfolio">Portfolio / Creative</option>
+                <option value="hospitality-travel">Hospitality / Travel</option>
+                <option value="personal-brand">Personal Brand</option>
+                <option value="nonprofit">Nonprofit / Cause</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="industry">Industry or Niche</label>
+              <input type="text" id="industry" placeholder="e.g. Wedding photography, SaaS project management, handmade jewellery">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="targetAudience">Target Audience</label>
+            <textarea id="targetAudience" rows="4" placeholder="Who should this website attract and convert?"></textarea>
+          </div>
+
+          <div class="input-group">
+            <label for="primaryGoal">Primary Goal</label>
+            <input type="text" id="primaryGoal" placeholder="e.g. Generate qualified enquiries and bookings">
+          </div>
+
+          <div class="suggestion-shell">
+            <div class="suggestion-header">
+              <div>
+                <h3>AI Positioning Suggestions</h3>
+                <p>Use AI to suggest a clearer audience and website goal.</p>
+              </div>
+              <button type="button" class="ai-btn" data-ai-action="positioning">Suggest Positioning</button>
+            </div>
+            <div id="basicsAiResult" class="suggestion-panel suggestion-panel--placeholder">Describe your website type and industry, then generate a sharper target audience and primary goal.</div>
+          </div>
+        </section>
+
+        <section class="wizard-step" data-step="2">
+          <div class="step-header">
+            <span class="step-kicker">Step 2</span>
+            <h2>Brand Identity</h2>
+            <p>Shape the personality and promise behind the website before you start styling it.</p>
+          </div>
+
+          <div class="input-group">
+            <label for="businessName">Business / Brand Name</label>
+            <input type="text" id="businessName" placeholder="e.g. Blossom Bakery, NovaTech Solutions">
+          </div>
+
+          <div class="input-group">
+            <label for="tagline">Tagline</label>
+            <div class="inline-action-field">
+              <input type="text" id="tagline" placeholder="A short, memorable promise">
+              <button type="button" class="ai-btn" data-ai-action="tagline">Generate</button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="mission">Mission / Brand Story</label>
+            <div class="stacked-action-field">
+              <textarea id="mission" rows="5" placeholder="What does this brand do and why does it matter?"></textarea>
+              <button type="button" class="ai-btn ai-btn--inline" data-ai-action="mission">Refine with AI</button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Core Values</label>
+            <div id="valuesContainer" class="repeater-list"></div>
+            <button type="button" id="addValueBtn" class="ghost-btn">Add Value</button>
+          </div>
+
+          <div class="input-group">
+            <label for="uniqueness">What makes you different?</label>
+            <textarea id="uniqueness" rows="4" placeholder="What gives this brand an edge over competitors?"></textarea>
+          </div>
+
+          <div id="identityAiResult" class="suggestion-panel suggestion-panel--placeholder">Generate a tagline or refine your mission to make the preview feel more complete.</div>
+        </section>
+
+        <section class="wizard-step" data-step="3">
+          <div class="step-header">
+            <span class="step-kicker">Step 3</span>
+            <h2>Colors</h2>
+            <p>Choose the mood of the website, then build a palette with AI help and live preview feedback.</p>
+          </div>
+
+          <div class="input-group">
+            <label>Color Mood</label>
+            <div class="chip-group" id="moodChips">
+              <button type="button" class="chip" data-mood="professional">Professional</button>
+              <button type="button" class="chip" data-mood="friendly">Friendly</button>
+              <button type="button" class="chip" data-mood="energetic">Energetic</button>
+              <button type="button" class="chip" data-mood="calm">Calm</button>
+              <button type="button" class="chip" data-mood="luxury">Luxury</button>
+              <button type="button" class="chip" data-mood="minimal">Minimal</button>
+              <button type="button" class="chip" data-mood="bold">Bold</button>
+              <button type="button" class="chip" data-mood="playful">Playful</button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="paletteInstructions">Palette Instructions <span class="optional-label">(Optional)</span></label>
+            <textarea id="paletteInstructions" rows="3" placeholder="e.g. Keep the palette warm and premium, avoid bright greens, and make the background feel airy and luxurious."></textarea>
+          </div>
+
+          <div class="input-group">
+            <label for="preferredColors">Preferred Colors or Hex Codes <span class="optional-label">(Optional)</span></label>
+            <input type="text" id="preferredColors" placeholder="e.g. #D97642, #C9A35F, warm ivory, copper">
+          </div>
+
+          <div class="suggestion-shell">
+            <div class="suggestion-header">
+              <div>
+                <h3>AI Palette Builder</h3>
+                <p>Generate a five-color system matched to your industry, chosen mood, and any optional palette directions.</p>
+              </div>
+              <button type="button" class="ai-btn" data-ai-action="palette">Generate Palette</button>
+            </div>
+            <div id="colorsAiResult" class="suggestion-panel suggestion-panel--placeholder">Pick a few moods, then let AI suggest a balanced palette with names and usage guidance.</div>
+          </div>
+
+          <div class="palette-grid">
+            <article class="palette-card" data-palette-index="0">
+              <div class="palette-top">
+                <label for="color0Hex">Primary</label>
+                <span id="color0HexText" class="hex-label">#3B82F6</span>
+              </div>
+              <input type="color" id="color0Hex" class="color-input">
+              <input type="text" id="color0Name" placeholder="Color name">
+              <textarea id="color0Usage" rows="2" placeholder="Where should this color be used?"></textarea>
+              <div id="color0Suggestion" class="mini-suggestion hidden"></div>
+            </article>
+
+            <article class="palette-card" data-palette-index="1">
+              <div class="palette-top">
+                <label for="color1Hex">Secondary</label>
+                <span id="color1HexText" class="hex-label">#1E3A8A</span>
+              </div>
+              <input type="color" id="color1Hex" class="color-input">
+              <input type="text" id="color1Name" placeholder="Color name">
+              <textarea id="color1Usage" rows="2" placeholder="Where should this color be used?"></textarea>
+              <div id="color1Suggestion" class="mini-suggestion hidden"></div>
+            </article>
+
+            <article class="palette-card" data-palette-index="2">
+              <div class="palette-top">
+                <label for="color2Hex">Accent</label>
+                <span id="color2HexText" class="hex-label">#F59E0B</span>
+              </div>
+              <input type="color" id="color2Hex" class="color-input">
+              <input type="text" id="color2Name" placeholder="Color name">
+              <textarea id="color2Usage" rows="2" placeholder="Where should this color be used?"></textarea>
+              <div id="color2Suggestion" class="mini-suggestion hidden"></div>
+            </article>
+
+            <article class="palette-card" data-palette-index="3">
+              <div class="palette-top">
+                <label for="color3Hex">Background</label>
+                <span id="color3HexText" class="hex-label">#F8FAFC</span>
+              </div>
+              <input type="color" id="color3Hex" class="color-input">
+              <input type="text" id="color3Name" placeholder="Color name">
+              <textarea id="color3Usage" rows="2" placeholder="Where should this color be used?"></textarea>
+              <div id="color3Suggestion" class="mini-suggestion hidden"></div>
+            </article>
+
+            <article class="palette-card" data-palette-index="4">
+              <div class="palette-top">
+                <label for="color4Hex">Text</label>
+                <span id="color4HexText" class="hex-label">#0F172A</span>
+              </div>
+              <input type="color" id="color4Hex" class="color-input">
+              <input type="text" id="color4Name" placeholder="Color name">
+              <textarea id="color4Usage" rows="2" placeholder="Where should this color be used?"></textarea>
+              <div id="color4Suggestion" class="mini-suggestion hidden"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="wizard-step" data-step="4">
+          <div class="step-header">
+            <span class="step-kicker">Step 4</span>
+            <h2>Typography</h2>
+            <p>Pick a heading and body pairing that fits your brand and keeps the site easy to read.</p>
+          </div>
+
+          <div class="field-grid two-col">
+            <div class="input-group">
+              <label for="headingFont">Heading Font</label>
+              <select id="headingFont">
+                <option value="Playfair Display">Playfair Display</option>
+                <option value="Cormorant Garamond">Cormorant Garamond</option>
+                <option value="Inter">Inter</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="Poppins">Poppins</option>
+                <option value="Merriweather">Merriweather</option>
+                <option value="Lora">Lora</option>
+                <option value="Oswald">Oswald</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="bodyFont">Body Font</label>
+              <select id="bodyFont">
+                <option value="Inter">Inter</option>
+                <option value="Open Sans">Open Sans</option>
+                <option value="Source Sans 3">Source Sans 3</option>
+                <option value="DM Sans">DM Sans</option>
+                <option value="Lora">Lora</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="Merriweather">Merriweather</option>
+                <option value="Poppins">Poppins</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="suggestion-shell">
+            <div class="suggestion-header">
+              <div>
+                <h3>AI Font Pairing</h3>
+                <p>Use AI to recommend a font combination from the available choices.</p>
+              </div>
+              <button type="button" class="ai-btn" data-ai-action="fonts">Suggest Fonts</button>
+            </div>
+            <div id="typographyAiResult" class="suggestion-panel suggestion-panel--placeholder">Generate a pairing if you want help choosing fonts that suit your style and audience.</div>
+          </div>
+
+          <div class="type-sample" id="typeSample">
+            <h3>Headline example for your website</h3>
+            <p>This live sample shows how the selected fonts will feel together in your website design system.</p>
+            <span>Supporting caption and smaller UI text</span>
+          </div>
+        </section>
+
+        <section class="wizard-step" data-step="5">
+          <div class="step-header">
+            <span class="step-kicker">Step 5</span>
+            <h2>Visual Style</h2>
+            <p>Choose the design direction and layout feel you want the homepage preview to reflect.</p>
+          </div>
+
+          <div class="input-group">
+            <label>Design Style</label>
+            <div class="style-grid" id="styleGrid">
+              <button type="button" class="style-card" data-style="modern">
+                <strong>Modern</strong>
+                <span>Clean, minimal, contemporary</span>
+              </button>
+              <button type="button" class="style-card" data-style="professional">
+                <strong>Professional</strong>
+                <span>Trusted, structured, polished</span>
+              </button>
+              <button type="button" class="style-card" data-style="creative">
+                <strong>Creative</strong>
+                <span>Expressive, visual, distinctive</span>
+              </button>
+              <button type="button" class="style-card" data-style="elegant">
+                <strong>Elegant</strong>
+                <span>Refined, premium, editorial</span>
+              </button>
+              <button type="button" class="style-card" data-style="playful">
+                <strong>Playful</strong>
+                <span>Friendly, warm, approachable</span>
+              </button>
+              <button type="button" class="style-card" data-style="bold">
+                <strong>Bold</strong>
+                <span>High contrast, confident, punchy</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Layout Preference</label>
+            <div class="radio-grid">
+              <label class="radio-card">
+                <input type="radio" name="layout" value="wide" checked>
+                <span>Wide & Spacious</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="layout" value="contained">
+                <span>Centered & Contained</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="layout" value="asymmetric">
+                <span>Asymmetric & Dynamic</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Visual Elements</label>
+            <div class="checkbox-grid" id="visualElementsGrid">
+              <label class="check-card"><input type="checkbox" value="animations"> <span>Subtle Animations</span></label>
+              <label class="check-card"><input type="checkbox" value="gradients"> <span>Gradients</span></label>
+              <label class="check-card"><input type="checkbox" value="shadows"> <span>Depth & Shadows</span></label>
+              <label class="check-card"><input type="checkbox" value="icons"> <span>Custom Icons</span></label>
+              <label class="check-card"><input type="checkbox" value="patterns"> <span>Background Patterns</span></label>
+              <label class="check-card"><input type="checkbox" value="illustrations"> <span>Illustrations</span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="wizard-step" data-step="6">
+          <div class="step-header">
+            <span class="step-kicker">Step 6</span>
+            <h2>Content & CTAs</h2>
+            <p>Define the voice, messages, and call-to-action that should shape the homepage story.</p>
+          </div>
+
+          <div class="input-group">
+            <label>Tone of Voice</label>
+            <div class="radio-grid tone-grid">
+              <label class="radio-card"><input type="radio" name="tone" value="formal"> <span>Formal</span></label>
+              <label class="radio-card"><input type="radio" name="tone" value="friendly" checked> <span>Friendly</span></label>
+              <label class="radio-card"><input type="radio" name="tone" value="authoritative"> <span>Authoritative</span></label>
+              <label class="radio-card"><input type="radio" name="tone" value="casual"> <span>Casual</span></label>
+              <label class="radio-card"><input type="radio" name="tone" value="inspiring"> <span>Inspiring</span></label>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Key Messages</label>
+            <div id="messagesContainer" class="repeater-list"></div>
+            <button type="button" id="addMessageBtn" class="ghost-btn">Add Message</button>
+          </div>
+
+          <div class="input-group">
+            <label for="ctaText">Primary CTA Text</label>
+            <input type="text" id="ctaText" placeholder="e.g. Start Your Project">
+          </div>
+
+          <div class="suggestion-shell">
+            <div class="suggestion-header">
+              <div>
+                <h3>AI Messaging Suggestions</h3>
+                <p>Generate a tone recommendation, homepage messages, and CTA text.</p>
+              </div>
+              <button type="button" class="ai-btn" data-ai-action="content">Suggest Messaging</button>
+            </div>
+            <div id="contentAiResult" class="suggestion-panel suggestion-panel--placeholder">Once you have basics and identity in place, AI can suggest stronger homepage messaging.</div>
+          </div>
+        </section>
+
+        <section class="wizard-step" data-step="7">
+          <div class="step-header">
+            <span class="step-kicker">Step 7</span>
+            <h2>Site Structure & Features</h2>
+            <p>Choose the pages and functionality your site needs, then optionally add deeper inspiration details.</p>
+          </div>
+
+          <div class="section-card">
+            <div class="section-card__header">
+              <div>
+                <h3>Core Pages</h3>
+                <p>Start with the essentials and expand only if needed.</p>
+              </div>
+              <button type="button" class="ai-btn" data-ai-action="pages">Recommend Pages</button>
+            </div>
+            <div class="checkbox-grid" id="pagesCheckboxes">
+              <label class="check-card"><input type="checkbox" value="home" checked disabled> <span>Home</span></label>
+              <label class="check-card"><input type="checkbox" value="about"> <span>About Us</span></label>
+              <label class="check-card"><input type="checkbox" value="services"> <span>Services / Products</span></label>
+              <label class="check-card"><input type="checkbox" value="portfolio"> <span>Portfolio / Gallery</span></label>
+              <label class="check-card"><input type="checkbox" value="blog"> <span>Blog / News</span></label>
+              <label class="check-card"><input type="checkbox" value="contact"> <span>Contact</span></label>
+              <label class="check-card"><input type="checkbox" value="faq"> <span>FAQ</span></label>
+              <label class="check-card"><input type="checkbox" value="testimonials"> <span>Testimonials</span></label>
+              <label class="check-card"><input type="checkbox" value="team"> <span>Team / Staff</span></label>
+              <label class="check-card"><input type="checkbox" value="pricing"> <span>Pricing</span></label>
+            </div>
+            <div id="pagesAiResult" class="suggestion-panel suggestion-panel--placeholder">Generate page recommendations based on your website type and goal.</div>
+          </div>
+
+          <div class="input-group">
+            <label>Additional Custom Pages</label>
+            <div id="customPagesContainer" class="repeater-list"></div>
+            <button type="button" id="addCustomPageBtn" class="ghost-btn">Add Custom Page</button>
+          </div>
+
+          <div class="section-card">
+            <div class="section-card__header">
+              <div>
+                <h3>Features</h3>
+                <p>Pick the functionality visitors will notice and use.</p>
+              </div>
+              <button type="button" class="ai-btn" data-ai-action="features">Recommend Features</button>
+            </div>
+            <div class="checkbox-grid feature-grid" id="featuresCheckboxes">
+              <label class="check-card"><input type="checkbox" value="contact-form"> <span>Contact Form</span></label>
+              <label class="check-card"><input type="checkbox" value="newsletter"> <span>Newsletter Signup</span></label>
+              <label class="check-card"><input type="checkbox" value="search"> <span>Site Search</span></label>
+              <label class="check-card"><input type="checkbox" value="social-media"> <span>Social Media Integration</span></label>
+              <label class="check-card"><input type="checkbox" value="blog"> <span>Blog System</span></label>
+              <label class="check-card"><input type="checkbox" value="ecommerce"> <span>E-commerce</span></label>
+              <label class="check-card"><input type="checkbox" value="booking"> <span>Booking / Appointments</span></label>
+              <label class="check-card"><input type="checkbox" value="user-accounts"> <span>User Accounts</span></label>
+              <label class="check-card"><input type="checkbox" value="live-chat"> <span>Live Chat</span></label>
+              <label class="check-card"><input type="checkbox" value="gallery"> <span>Image / Video Gallery</span></label>
+              <label class="check-card"><input type="checkbox" value="testimonials"> <span>Testimonials / Reviews</span></label>
+              <label class="check-card"><input type="checkbox" value="multi-language"> <span>Multi-language</span></label>
+              <label class="check-card"><input type="checkbox" value="analytics"> <span>Analytics / Tracking</span></label>
+              <label class="check-card"><input type="checkbox" value="seo"> <span>SEO Optimization</span></label>
+            </div>
+            <div id="featuresAiResult" class="suggestion-panel suggestion-panel--placeholder">Generate feature recommendations once your pages and goals are defined.</div>
+          </div>
+
+          <div class="input-group">
+            <label>Integrations</label>
+            <div id="integrationsContainer" class="repeater-list"></div>
+            <button type="button" id="addIntegrationBtn" class="ghost-btn">Add Integration</button>
+          </div>
+
+          <details class="advanced-panel">
+            <summary>Advanced inspiration and reference inputs</summary>
+
+            <div class="input-group">
+              <label>Reference Websites</label>
+              <div id="referencesContainer" class="repeater-list"></div>
+              <button type="button" id="addReferenceBtn" class="ghost-btn">Add Reference Site</button>
+            </div>
+
+            <div class="input-group">
+              <label>Competitor Websites</label>
+              <div id="competitorsContainer" class="repeater-list"></div>
+              <button type="button" id="addCompetitorBtn" class="ghost-btn">Add Competitor</button>
+            </div>
+
+            <div class="input-group">
+              <label for="designDonts">Design Don’ts</label>
+              <textarea id="designDonts" rows="4" placeholder="Anything you definitely do not want on the website."></textarea>
+            </div>
+          </details>
+        </section>
+
+        <section class="wizard-step" data-step="8">
+          <div class="step-header">
+            <span class="step-kicker">Step 8</span>
+            <h2>Review, Summary & Export</h2>
+            <p>Review the full brief, generate an executive summary, and export it when you are ready.</p>
+          </div>
+
+          <div id="reviewContent" class="review-content"></div>
+
+          <div class="suggestion-shell">
+            <div class="suggestion-header">
+              <div>
+                <h3>AI Executive Summary</h3>
+                <p>Generate a concise brief your designer or developer can act on quickly.</p>
+              </div>
+              <button type="button" class="ai-btn" data-ai-action="summary">Generate Summary</button>
+            </div>
+            <div id="summaryAiResult" class="suggestion-panel suggestion-panel--placeholder">Generate a summary after you finish the key steps above.</div>
+          </div>
+
+          <div class="export-box">
+            <p>Your export includes the brief, selected pages and features, references, and AI summary.</p>
+            <button type="button" id="exportBtn" class="primary-btn primary-btn--wide">Download Word Brief</button>
+          </div>
+        </section>
+      </div>
+
+      <footer class="builder-footer">
+        <button type="button" id="prevStepBtn" class="ghost-btn">Back</button>
+        <button type="button" id="nextStepBtn" class="primary-btn">Next Step</button>
+      </footer>
+    </aside>
+
+    <main class="preview-panel" id="previewPanel">
+      <div class="preview-toolbar">
+        <div>
+          <strong>Dynamic Homepage Preview</strong>
+          <span>Updates instantly from your brief</span>
+        </div>
+        <div class="preview-toolbar__actions">
+          <span class="live-indicator">Live</span>
+          <button type="button" id="closePreviewBtn" class="ghost-btn preview-close-btn">Close</button>
+        </div>
+      </div>
+      <div class="preview-stage" id="previewStage"></div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <div id="loadingOverlay" class="loading-overlay hidden" aria-hidden="true">
+    <div class="spinner"></div>
+    <p>AI is generating suggestions...</p>
+  </div>
+
+  <script src="ai_studio_code.js"></script>
+</body>
+</html>

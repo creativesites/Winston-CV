@@ -1,252 +1,219 @@
-import Link from "next/link";
-import { Fragment, use, useEffect, useState } from "react";
-import { linkClick, toggleMenu } from "../utils";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 
-const Header = () => {
-  const [day, setDay] = useState(true);
+const navLinks = [
+  { label: 'About', href: '/#about-section' },
+  { label: 'Work', href: '/#works-section' },
+  { label: 'Experience', href: '/#resume-section' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Tools', href: '/tools' },
+  { label: 'Contact', href: '/#contact-section' },
+];
+
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+
   useEffect(() => {
-    document.querySelector("body").classList.remove("light-skin");
-    document.querySelector("body").classList.add("dark-skin");
-    // if (day) {
-    //   // document.querySelector("body").classList.add("light-skin");
-    //   // document.querySelector("body").classList.remove("dark-skin");
-    //   document.querySelector("body").classList.add("dark-skin");
-    // } else {
-    //   document.querySelector("body").classList.add("dark-skin");
-    // }
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
-  const toggleday = () => {
-    if(day){
-      document.querySelector("body").classList.remove("dark-skin");
-      document.querySelector("body").classList.add("light-skin");
-      setDay(!day)
-    }else{
-      document.querySelector("body").classList.remove("light-skin");
-      document.querySelector("body").classList.add("dark-skin");
-      setDay(!day)
-    }
-  } 
 
-  const [pageToggle, setPageToggle] = useState(false);
+  const handleNavClick = (e, href) => {
+    setMenuOpen(false);
+    if (href.startsWith('/#') && router.pathname === '/') {
+      e.preventDefault();
+      document.getElementById(href.slice(2))?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <Fragment>
-      {/* Header */}
-      <header className="header">
-        <div className="header__builder">
-          <div className="row">
-            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-              {/* logo */}
-              {/*<div className="logo">*/}
-              {/*  <Link href="/" legacyBehavior>*/}
-              {/*    <a>*/}
-              {/*      <img*/}
-              {/*        width={228}*/}
-              {/*        height={38}*/}
-              {/*        src="assets/images/logo2.png"*/}
-              {/*        alt=""*/}
-              {/*      />*/}
-              {/*    </a>*/}
-              {/*  </Link>*/}
-              {/*</div>*/}
-            </div>
-            <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8 align-right">
-              {/* switcher btn */}
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? 'bg-bg-dark/90 backdrop-blur-md border-b border-border-subtle shadow-lg shadow-black/20'
+            : 'bg-transparent'
+        }`}
+      >
+        <div className="section-container">
+          <div className="flex items-center justify-between h-16 md:h-18">
+            {/* Logo */}
+            <Link href="/" className="flex items-center group">
+              <Image
+                src="/assets/images/logo-white.png"
+                alt="Winston Chikazhe"
+                width={120}
+                height={40}
+                className="h-8 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
+              />
+            </Link>
+
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) =>
+                link.href.startsWith('/#') ? (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="nav-link"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link key={link.label} href={link.href} className="nav-link">
+                    {link.label}
+                  </Link>
+                )
+              )}
+            </nav>
+
+            {/* Desktop CTAs */}
+            <div className="hidden md:flex items-center gap-3">
               <a
-                href="#"
-                className={`switcher-btn ${day ? "" : "active"}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  toggleday()
-                }}
+                href="https://www.linkedin.com/in/winston-tinashe-5939b91b6/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-muted hover:text-accent transition-colors"
+                aria-label="LinkedIn"
               >
-                <span className="sw-before">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={23}
-                    height={23}
-                    viewBox="0 0 23 23"
-                  >
-                    <path
-                      id="Dark_Theme"
-                      data-name="Dark Theme"
-                      fill="#000"
-                      d="M1759.46,111.076a0.819,0.819,0,0,0-.68.147,8.553,8.553,0,0,1-2.62,1.537,8.167,8.167,0,0,1-2.96.531,8.655,8.655,0,0,1-8.65-8.682,9.247,9.247,0,0,1,.47-2.864,8.038,8.038,0,0,1,1.42-2.54,0.764,0.764,0,0,0-.12-1.063,0.813,0.813,0,0,0-.68-0.148,11.856,11.856,0,0,0-6.23,4.193,11.724,11.724,0,0,0,1,15.387,11.63,11.63,0,0,0,19.55-5.553A0.707,0.707,0,0,0,1759.46,111.076Zm-4.5,6.172a10.137,10.137,0,0,1-14.29-14.145,10.245,10.245,0,0,1,3.38-2.836c-0.14.327-.29,0.651-0.41,1.006a9.908,9.908,0,0,0-.56,3.365,10.162,10.162,0,0,0,10.15,10.189,9.776,9.776,0,0,0,3.49-.62,11.659,11.659,0,0,0,1.12-.473A10.858,10.858,0,0,1,1754.96,117.248Z"
-                      transform="translate(-1737 -98)"
-                    />
-                  </svg>
-                </span>
-                <span className="sw-after">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="22.22"
-                    height="22.313"
-                    viewBox="0 0 22.22 22.313"
-                  >
-                    <path
-                      id="Light_Theme"
-                      data-name="Light Theme"
-                      fill="#fff"
-                      d="M1752.49,105.511a5.589,5.589,0,0,0-3.94-1.655,5.466,5.466,0,0,0-3.94,1.655,5.61,5.61,0,0,0,3.94,9.566,5.473,5.473,0,0,0,3.94-1.653,5.643,5.643,0,0,0,1.65-3.957A5.516,5.516,0,0,0,1752.49,105.511Zm-1.06,6.85a4.1,4.1,0,0,1-5.76,0,4.164,4.164,0,0,1,0-5.788A4.083,4.083,0,0,1,1751.43,112.361Zm7.47-3.662h-2.27a0.768,0.768,0,0,0,0,1.536h2.27A0.768,0.768,0,0,0,1758.9,108.7Zm-10.35,8.12a0.777,0.777,0,0,0-.76.769v2.274a0.777,0.777,0,0,0,.76.767,0.786,0.786,0,0,0,.77-0.767v-2.274A0.786,0.786,0,0,0,1748.55,116.819Zm7.85-.531-1.62-1.624a0.745,0.745,0,0,0-1.06,0,0.758,0.758,0,0,0,0,1.063l1.62,1.625a0.747,0.747,0,0,0,1.06,0A0.759,0.759,0,0,0,1756.4,116.288ZM1748.55,98.3a0.777,0.777,0,0,0-.76.768v2.273a0.778,0.778,0,0,0,.76.768,0.787,0.787,0,0,0,.77-0.768V99.073A0.786,0.786,0,0,0,1748.55,98.3Zm7.88,3.278a0.744,0.744,0,0,0-1.06,0l-1.62,1.624a0.758,0.758,0,0,0,0,1.063,0.745,0.745,0,0,0,1.06,0l1.62-1.624A0.758,0.758,0,0,0,1756.43,101.583Zm-15.96,7.116h-2.26a0.78,0.78,0,0,0-.77.768,0.76,0.76,0,0,0,.77.768h2.26A0.768,0.768,0,0,0,1740.47,108.7Zm2.88,5.965a0.745,0.745,0,0,0-1.06,0l-1.62,1.624a0.759,0.759,0,0,0,0,1.064,0.747,0.747,0,0,0,1.06,0l1.62-1.625A0.758,0.758,0,0,0,1743.35,114.664Zm0-11.457-1.62-1.624a0.744,0.744,0,0,0-1.06,0,0.758,0.758,0,0,0,0,1.063l1.62,1.624a0.745,0.745,0,0,0,1.06,0A0.758,0.758,0,0,0,1743.35,103.207Z"
-                      transform="translate(-1737.44 -98.313)"
-                    />
-                  </svg>
-                </span>
+                <LinkedInIcon />
               </a>
-              {/* menu btn */}
-              <a href="#" className="menu-btn" onClick={(e) => toggleMenu(e)}>
-                <span />
-                <span />
+              <a
+                href="/assets/docs/Winston-CV.pdf"
+                download
+                className="btn-primary text-sm py-2 px-4"
+              >
+                Download CV
               </a>
-              {/* Menu Full Overlay */}
-              <div className="menu-full-overlay">
-                <div className="menu-full-container">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        {/* menu full */}
-                        <div className="menu-full">
-                          <ul className="menu-full">
-                            <li className="menu-item">
-                              <Link legacyBehavior href="/">
-                                <a
-                                  className="splitting-text-anim-2"
-                                  data-splitting="chars"
-                                >
-                                  Home
-                                </a>
-                              </Link>
-                            </li>
-                            <li className="menu-item">
-                              <a
-                                className="splitting-text-anim-2"
-                                data-splitting="chars"
-                                href="/#services-section"
-                                onClick={() => linkClick()}
-                              >
-                                Services
-                              </a>
-                            </li>
-                            <li className="menu-item">
-                              <a
-                                className="splitting-text-anim-2"
-                                data-splitting="chars"
-                                href="/#skills-section"
-                                onClick={() => linkClick()}
-                              >
-                                Skills
-                              </a>
-                            </li>
-                            <li className="menu-item">
-                              <a
-                                className="splitting-text-anim-2"
-                                data-splitting="chars"
-                                href="/#works-section"
-                                onClick={() => linkClick()}
-                              >
-                                Works
-                              </a>
-                            </li>
-                            <li className="menu-item">
-                              <a
-                                className="splitting-text-anim-2"
-                                data-splitting="chars"
-                                href="/#resume-section"
-                                onClick={() => linkClick()}
-                              >
-                                Resume
-                              </a>
-                            </li>
-                            {/* <li className="menu-item">
-                              <a
-                                className="splitting-text-anim-2"
-                                data-splitting="chars"
-                                href="/#testimonials-sec
-                                onClick={() => linkClick()}tion"
-                              >
-                                Testimonials
-                              </a>
-                            </li> */}
-                            {/* <li className="menu-item">
-                              <a
-                                className="splitting-text-anim-2"
-                                data-splitting="chars"
-                                href="/#pricing-section"
-                                onClick={() => linkClick()}
-                              >
-                                Pricing
-                              </a>
-                            </li> */}
-                            <li className="menu-item">
-                              <a
-                                className="splitting-text-anim-2"
-                                data-splitting="chars"
-                                href="/#blog-section"
-                                onClick={() => linkClick()}
-                              >
-                                Blog
-                              </a>
-                            </li>
-                            <li className="menu-item">
-                              <a
-                                className="splitting-text-anim-2"
-                                data-splitting="chars"
-                                href="/#contact-section"
-                                onClick={() => linkClick()}
-                              >
-                                Contact
-                              </a>
-                            </li>
-                            
-                          </ul>
-                        </div>
-                        {/* social */}
-                        <div className="menu-social-links">
-                          {/* <a
-                            href="http://dribbble.com"
-                            target="blank"
-                            className="scrolla-element-anim-1"
-                            title="dribbble"
-                          >
-                            <i className="fab fa-dribbble" />
-                          </a>
-                          <a
-                            href="http://twitter.com"
-                            target="blank"
-                            className="scrolla-element-anim-1"
-                            title="twitter"
-                          >
-                            <i className="fab fa-twitter" />
-                          </a>
-                          <a
-                            href="http://behance.com"
-                            target="blank"
-                            className="scrolla-element-anim-1"
-                            title="behance"
-                          >
-                            <i className="fab fa-behance" />
-                          </a> */}
-                          <a target="_blank" rel="nofollow" href="https://github.com/creativesites">
-                            <i aria-hidden="true" className="fab fa-github" />
-                          </a>
-                          <a target="_blank" rel="nofollow" href="https://www.youtube.com/channel/UCzT3j_bJn13BaDcNxW2Ljeg">
-                            <i aria-hidden="true" className="fab fa-youtube" />
-                          </a>
-                        </div>
-                        <div className="v-line-block">
-                          <span />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="menu-overlay" />
-              </div>
             </div>
+
+            {/* Mobile menu button */}
+            <button
+              className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-surface transition-colors"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span
+                className={`block w-5 h-0.5 bg-text-primary transition-all duration-300 ${
+                  menuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}
+              />
+              <span
+                className={`block w-5 h-0.5 bg-text-primary transition-all duration-300 ${
+                  menuOpen ? 'opacity-0' : ''
+                }`}
+              />
+              <span
+                className={`block w-5 h-0.5 bg-text-primary transition-all duration-300 ${
+                  menuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}
+              />
+            </button>
           </div>
         </div>
       </header>
-    </Fragment>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 z-40 bg-bg-dark/95 backdrop-blur-xl flex flex-col justify-center items-center transition-all duration-400 ${
+          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <nav className="flex flex-col items-center gap-8">
+          {navLinks.map((link, i) =>
+            link.href.startsWith('/#') ? (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`text-3xl font-semibold text-text-primary hover:text-accent transition-colors duration-200 ${
+                  menuOpen ? 'animate-fade-up' : ''
+                }`}
+                style={{ animationDelay: `${i * 60}ms` }}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`text-3xl font-semibold text-text-primary hover:text-accent transition-colors duration-200 ${
+                  menuOpen ? 'animate-fade-up' : ''
+                }`}
+                style={{ animationDelay: `${i * 60}ms` }}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
+          <a
+            href="/assets/docs/Winston-CV.pdf"
+            download
+            onClick={(e) => handleNavClick(e, '')}
+            className="btn-primary mt-4"
+          >
+            Download CV
+          </a>
+        </nav>
+
+        <div className="flex items-center gap-6 mt-12">
+          <a
+            href="https://github.com/creativesites"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-muted hover:text-text-primary transition-colors"
+          >
+            <GitHubIcon className="w-6 h-6" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/winston-tinashe-5939b91b6/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-muted hover:text-accent transition-colors"
+          >
+            <LinkedInIcon className="w-6 h-6" />
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCzT3j_bJn13BaDcNxW2Ljeg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-muted hover:text-red-400 transition-colors"
+          >
+            <YouTubeIcon className="w-6 h-6" />
+          </a>
+        </div>
+      </div>
+    </>
   );
-};
-export default Header;
+}
+
+function GitHubIcon({ className = 'w-5 h-5' }) {
+  return (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon({ className = 'w-5 h-5' }) {
+  return (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  );
+}
+
+function YouTubeIcon({ className = 'w-5 h-5' }) {
+  return (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+  );
+}
