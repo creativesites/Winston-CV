@@ -4,6 +4,24 @@ import Layout from '../src/layouts/Layout';
 
 const tools = [
   {
+    id: 'luxe-admin',
+    name: 'Luxe Admin',
+    tagline: 'Premium white-label dashboard and editorial-style WordPress admin.',
+    description:
+      'A high-end WordPress admin customization tool for agencies. Transform the standard WordPress dashboard into a premium, white-labeled experience with custom login pages, editorial-style UI elements, and tailored menu management.',
+    features: [
+      'White-label Dashboard with custom welcome messages',
+      'Editorial-style Admin UI with premium glassmorphism',
+      'Fully customizable Login Page (Logo, Colors, Layout)',
+      'Advanced Menu Management to simplify the client experience',
+      'Theme switching (Default vs Premium Dark)',
+      'One-click Download as Plugin for immediate deployment',
+    ],
+    type: 'WordPress Plugin',
+    action: { label: 'Download ZIP', href: '/free-tools/wordpress-plugins/luxe-admin.zip', external: false },
+    color: 'accent-indigo',
+  },
+  {
     id: 'glass-studio',
     name: 'Luxe Glass & Pattern Studio',
     tagline: 'High-end design playground for glassmorphism UI and SVG textures.',
@@ -144,6 +162,12 @@ const colorMap = {
     icon: 'bg-amber-500/10 text-amber-500',
     border: 'border-amber-500/20 hover:border-amber-500/50',
     btn: 'bg-amber-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-amber-500/90 transition-colors inline-flex items-center gap-2',
+  },
+  'accent-indigo': {
+    tag: 'bg-indigo-500/10 text-indigo-500 border border-indigo-500/20 text-xs font-semibold px-2.5 py-1 rounded-full',
+    icon: 'bg-indigo-500/10 text-indigo-500',
+    border: 'border-indigo-500/20 hover:border-indigo-500/50',
+    btn: 'bg-indigo-600 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors inline-flex items-center gap-2',
   },
 };
 
